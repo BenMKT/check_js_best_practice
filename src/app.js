@@ -24,7 +24,8 @@ const addTask = (tasks, description) => {
 const deleteTask = (tasks, taskId) => {
   if (taskId >= 0 && taskId < tasks.length) {
     tasks.splice(taskId, 1);
-    for (let i = taskId; i < tasks.length; i += 1) {
+    let taskLength = tasks.length;
+    for (let i = taskId; i < taskLength; i += 1) {
       tasks[i].index = i + 1;
     }
     updateLocalStorage(tasks);
